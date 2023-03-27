@@ -1,4 +1,7 @@
 # Getting Started TODO App
+[![Build](https://github.com/fazleyKholil/todo-app/actions/workflows/docker-compose-build.yml/badge.svg)](https://github.com/fazleyKholil/todo-app/actions/workflows/docker-compose-build.yml)
+
+[![coverage](https://github.com/fazleyKholil/todo-app/actions/workflows/coverage-read-me.yml/badge.svg?branch=main)](https://github.com/fazleyKholil/todo-app/actions/workflows/coverage-read-me.yml)
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
