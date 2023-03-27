@@ -1,9 +1,11 @@
 import { render, screen, queryByTestId } from "@testing-library/react";
-import App from "../App";
+import App from "../src/App";
 import { BrowserRouter, MemoryRouter } from "react-router-dom";
 import userEvent from "@testing-library/user-event";
 import { act } from "react-dom/test-utils";
-import TodoDueWarning from "../Components/TodoDueWarning";
+import TodoDueWarning from "../src/Components/TodoDueWarning";
+import axios from "axios";
+jest.mock("axios");
 
 test("renders default page", async () => {
   render(<App />, { wrapper: BrowserRouter });
@@ -12,6 +14,15 @@ test("renders default page", async () => {
 });
 
 test("renders Create page", async () => {
+
+  const users = [
+    { id: 1, name: "John" },
+    { id: 2, name: "Andrew" },
+  ];
+
+
+  (axios.get as jest.Mock).mockResolvedValue(users);
+
   // Render a component
   act(() => {
     render(<App />, { wrapper: BrowserRouter });
