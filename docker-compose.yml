@@ -1,0 +1,12 @@
+version: '2'
+
+services:
+  json-server:
+    build:
+      context: .
+      dockerfile: infra/json-server/Dockerfile
+    container_name: json-server
+    ports:
+      - "3000:3000"
+    volumes:
+      - /infra/json-server/data/:/data/

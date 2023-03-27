@@ -4,6 +4,38 @@ import { BrowserRouter, MemoryRouter } from "react-router-dom";
 import userEvent from "@testing-library/user-event";
 import { act } from "react-dom/test-utils";
 import TodoDueWarning from "../Components/TodoDueWarning";
+import axios from "axios";
+jest.mock("axios");
+const mockedAxios = axios as jest.Mocked<typeof axios>;
+
+const todos = [
+  {
+    id: 0,
+    Done: true,
+    Name: "Read Book",
+    Priority: "High",
+    Due: "2022-01-01",
+    Text: "Need to read the Accelerate book Building and Scaling high performing Organization",
+  },
+  {
+    id: 1,
+    Done: false,
+    Name: "Buy Drinks",
+    Priority: "medium",
+    Due: "2022-01-05",
+    Text: "Need to buy some drinks for the party.",
+  },
+];
+
+beforeEach(() => {
+  jest.resetAllMocks();
+  // Provide the data object to be returned
+  mockedAxios.get.mockResolvedValue({
+    data: todos,
+    status: 200,
+    statusText: "Ok",
+  });
+});
 
 test("renders default page", async () => {
   render(<App />, { wrapper: BrowserRouter });
