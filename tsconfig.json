@@ -22,5 +22,5 @@
   },
   "include": [
     "src"
-, "src/__tests__/ViewTodo.test.tsx", "src/__tests__/CreateTodo.t.tsx", "infra/App.test.tsx"  ]
+, "src/__tests__/ViewTodo.test.tsx", "src/__tests__/CreateTodo.t.tsx", "src/__tests__/App.test.tsx"  ]
 }

@@ -1,11 +1,11 @@
 import { render, screen, queryByTestId } from "@testing-library/react";
-import App from "../src/App";
+import App from "../App";
 import { BrowserRouter, MemoryRouter } from "react-router-dom";
 import userEvent from "@testing-library/user-event";
 import { act } from "react-dom/test-utils";
-import TodoDueWarning from "../src/Components/TodoDueWarning";
+import TodoDueWarning from "../Components/TodoDueWarning";
 import axios from "axios";
-jest.mock("axios");
+// jest.mock("axios");
 
 test("renders default page", async () => {
   render(<App />, { wrapper: BrowserRouter });
@@ -21,7 +21,7 @@ test("renders Create page", async () => {
   ];
 
 
-  (axios.get as jest.Mock).mockResolvedValue(users);
+  // (axios.get as jest.Mock).mockResolvedValue(users);
 
   // Render a component
   act(() => {
