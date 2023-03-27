@@ -1,18 +1,22 @@
-name: 'coverage'
+name: "coverage"
 on:
   pull_request:
     branches:
-    - main
+      - main
 
 jobs:
-    coverage-pr:
-        runs-on: ubuntu-latest
-        name: Coverage report
-        steps:
-            - name: Checkout
-              uses: actions/checkout@v2
-            - name: Test coverage
-              uses: ArtiomTr/jest-coverage-report-action@v2
-              with:
-                  annotations: failed-tests
-                  test-script: npm run coverage               
+  coverage:
+    runs-on: ubuntu-latest
+    name: Coverage report
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Test coverage
+        uses: ArtiomTr/jest-coverage-report-action@v2
+        with:
+          annotations: failed-tests
+          test-script: npm run coverage
+      - name: Generating coverage badges
+        uses: jpb06/jest-badges-action@latest
+        with:
+          coverage-summary-path: ./coverage/coverage-final.json

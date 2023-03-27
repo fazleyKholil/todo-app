@@ -1,7 +1,57 @@
 # Getting Started TODO App
 [![Build](https://github.com/fazleyKholil/todo-app/actions/workflows/docker-compose-build.yml/badge.svg)](https://github.com/fazleyKholil/todo-app/actions/workflows/docker-compose-build.yml)
 
-[![coverage](https://github.com/fazleyKholil/todo-app/actions/workflows/coverage-read-me.yml/badge.svg?branch=main)](https://github.com/fazleyKholil/todo-app/actions/workflows/coverage-read-me.yml)
+[![coverage](https://github.com/fazleyKholil/todo-app/actions/workflows/coverage-pr.yml/badge.svg)](https://github.com/fazleyKholil/todo-app/actions/workflows/coverage-pr.yml)
+
+
+
+
+
+
+
+
+
+
+### Coverage
+![coverage-branches](/coverage/badge-branches.svg)
+![coverage-functions](/coverage/badge-functions.svg)
+![coverage-lines](/coverage/badge-lines.svg)
+![coverage-statements](/coverage/badge-statements.svg)
+
+# Todo App Requirements 
+![Usecase Diagram](/resx/usecase.PNG)
+- The user should be able to view todo's
+- The user should be able to add todo's
+- The user should be able to delete todo's
+- The user should be able to edit todo's
+
+
+# UI Flow design
+ ![Floe Diagram](/resx/pageflow.PNG)
+The application will contains 2 main screen. The first screen will display all the todo's and action buttons such as edit and delete for each todo.
+The Create Todo screen will serve a form that allows a user to add a Todo as well as edit an existing todo.
+
+
+# Architecture
+ ![Architecture Diagram](/resx/jsonserver.PNG)
+For simplicity, the app connects to the Mock JSON server and serves todo's data.
+
+
+
+## Getting started
+### Running locally
+
+When running locally, you need to create all the infra dependencies.
+```javascript
+docker-compose up --build --force-recreate
+```
+
+### Running coverage
+```javascript
+ npm run coverage
+```
+
+# Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
