@@ -29,7 +29,9 @@ const CreateTodoForm: React.FC<TodoFormProps> = ({
     Text: "",
   };
 
-  const [currentTodo, setCurrentTodo] = useState<TodoItem>(emptyTodo);
+  const [currentTodo, setCurrentTodo] = useState<TodoItem | undefined>(
+    emptyTodo
+  );
 
   useEffect(() => {
     setCurrentTodo(existingTodo);
@@ -67,7 +69,10 @@ const CreateTodoForm: React.FC<TodoFormProps> = ({
   const onSubmit: SubmitHandler<FormSchemaType> = (data) => {
     //new todo
     let todo: TodoItem = {
-      id: currentTodo !== undefined ? currentTodo.id : crypto.randomUUID(),
+      id:
+        currentTodo !== undefined
+          ? currentTodo.id
+          : (Date.now() + Math.random()).toString(),
       Name: data.name,
       Text: data.text,
       Done: false,
@@ -81,16 +86,19 @@ const CreateTodoForm: React.FC<TodoFormProps> = ({
   return (
     <MDBCard>
       <MDBCardBody>
-        <form onSubmit={handleSubmit(onSubmit)}>
+        <form data-testid="create-todo-form" onSubmit={handleSubmit(onSubmit)}>
           <MDBRow className="mb-4">
             <MDBCol>
               <MDBInput
+                aria-label="todo name"
                 label="Name"
                 {...register("name")}
                 disabled={isSubmitting}
               />
               {errors.name && (
-                <p className="text-error">{errors.name.message}</p>
+                <p className="text-error" data-testid="text-error-name">
+                  {errors.name.message}
+                </p>
               )}
             </MDBCol>
             <MDBCol>
@@ -101,27 +109,36 @@ const CreateTodoForm: React.FC<TodoFormProps> = ({
                   title="Set Due Date"
                 >
                   <input
+                    aria-label="todo due"
                     className="form-control date-input"
                     type="date"
                     {...register("date")}
                     disabled={isSubmitting}
                   />
-                  {errors.date && (
-                    <p className="text-error">{errors.date?.message}</p>
-                  )}
+                  {/* not needed */}
+                  {/* {errors.date && (
+                    <p className="text-error" data-testid="text-error-date">
+                      {errors.date?.message}
+                    </p>
+                  )} */}
                 </MDBTooltip>
               </div>
             </MDBCol>
           </MDBRow>
           <MDBCol>
             <MDBInput
+              aria-label="todo text"
               className="mb-4"
               type="text"
               label="Enter Task Description"
               {...register("text")}
               disabled={isSubmitting}
             />
-            {errors.text && <p className="text-error">{errors.text.message}</p>}
+            {errors.text && (
+              <p className="text-error" data-testid="text-error-text">
+                {errors.text.message}
+              </p>
+            )}
           </MDBCol>
           <MDBRow className="mb-4">
             <MDBCol size="auto">
@@ -129,6 +146,7 @@ const CreateTodoForm: React.FC<TodoFormProps> = ({
             </MDBCol>
             <MDBCol size="auto">
               <select
+                data-testid="todo priority"
                 id="start"
                 {...register("priority")}
                 disabled={isSubmitting}
@@ -136,17 +154,24 @@ const CreateTodoForm: React.FC<TodoFormProps> = ({
                 <option value="High">High</option>
                 <option value="Medium">Medium</option>
                 <option value="Low">Low</option>
-                <option value="no">None</option>
+                <option value="None">None</option>
               </select>
             </MDBCol>
             {errors.priority && (
-              <p className="text-error">{errors.priority?.message}</p>
+              <p className="text-error" data-testid="text-error-priority">
+                {errors.priority?.message}
+              </p>
             )}
           </MDBRow>
 
           {/* <pre>{JSON.stringify(watch(), null, 2)}</pre> */}
 
-          <MDBBtn type="submit" className="mb-4" block>
+          <MDBBtn
+            data-testid="create-todo-form-submit"
+            type="submit"
+            className="mb-4"
+            block
+          >
             {currentTodo !== undefined ? "Edit Task" : "Add Task"}
           </MDBBtn>
         </form>

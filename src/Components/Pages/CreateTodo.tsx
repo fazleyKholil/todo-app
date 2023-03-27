@@ -52,7 +52,7 @@ const CreateTodo: React.FC = () => {
         <NotificationPanel message={resultMessage} isError={isError} />
       )}
       <Link to="/">
-        <MDBBtn className="view-list-btn" size="lg" floating>
+        <MDBBtn className="view-list-btn" aria-label='view-todo' size="lg" floating>
           <MDBIcon far icon="list-alt" />
         </MDBBtn>
       </Link>

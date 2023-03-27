@@ -43,8 +43,8 @@ const FilterSortWidget: React.FC = () => {
       </MDBTooltip>
 
       <Link to="create">
-        <MDBBtn className="add-btn" size="lg" floating>
-          <MDBIcon fab icon="add" />
+        <MDBBtn className="add-btn" size="lg" floating aria-label='create-todo'>
+          <MDBIcon fab icon="add"/>
         </MDBBtn>
       </Link>
     </div>

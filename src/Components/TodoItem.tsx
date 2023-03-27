@@ -25,6 +25,7 @@ const TodoItem: React.FC<TodoItemProps> = ({
 }) => {
   return (
     <MDBListGroup
+      data-testid="todo-item"
       horizontal
       className={
         todo.Done
@@ -36,17 +37,22 @@ const TodoItem: React.FC<TodoItemProps> = ({
         <MDBCheckbox
           name="flexCheck"
           id="flexCheckChecked"
+          data-testid="todo-item-check"
           checked={todo.Done}
           onChange={() => toggleComplete(todo)}
         />
       </MDBListGroupItem>
       <MDBListGroupItem className="px-3 py-1 d-flex align-items-center flex-grow-1 border-0 bg-transparent todo-item ">
         {" "}
-        <p className="lead fw-normal mb-0">{todo.Name}</p>
+        <p className="lead fw-normal mb-0" data-testid="todo-name">
+          {todo.Name}
+        </p>
       </MDBListGroupItem>
       <MDBListGroupItem className="px-3 py-1 d-flex align-items-center flex-grow-1 border-0 bg-transparent todo-item ">
         {" "}
-        <p className="lead fw-normal mb-0">{todo.Text}</p>
+        <p className="lead fw-normal mb-0" data-testid="todo-text">
+          {todo.Text}
+        </p>
       </MDBListGroupItem>
 
       {/* if due date is passed, show warning */}
@@ -57,6 +63,7 @@ const TodoItem: React.FC<TodoItemProps> = ({
           <MDBTooltip tag="a" wrapperProps={{ href: "#!" }} title="Edit todo">
             <MDBIcon
               onClick={() => onEditTodo(todo)}
+              data-testid="todo-item-edit"
               fas
               icon="pencil-alt"
               className="me-3"
@@ -67,6 +74,7 @@ const TodoItem: React.FC<TodoItemProps> = ({
           <MDBTooltip tag="a" wrapperProps={{ href: "#!" }} title="Delete todo">
             <MDBIcon
               onClick={() => onDeleteTodo(todo)}
+              data-testid="todo-item-delete"
               fas
               icon="trash-alt"
               color="danger"
@@ -79,7 +87,7 @@ const TodoItem: React.FC<TodoItemProps> = ({
             wrapperProps={{ href: "#!" }}
             title="Created date"
           >
-            <p className="small text-muted mb-0">
+            <p className="small text-muted mb-0" data-testid="todo-due">
               <MDBIcon fas icon="info-circle" className="me-2" />
               {new Date(todo.Due).toDateString()}
             </p>

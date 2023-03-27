@@ -7,6 +7,7 @@ interface ErrorPanelProps {
 const NotificationPanel: React.FC<ErrorPanelProps> = ({ message, isError }) => {
   return (
     <div
+      data-testid="notification-panel"
       className={
         isError
           ? "p-3 mb-2 bg-danger text-white rounded-5"

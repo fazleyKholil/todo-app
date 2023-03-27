@@ -17,6 +17,5 @@ type EditTodo = (todo: TodoItem) => void;
 interface TodoFormProps {
   onAddingTodo: AddTodo;
   onUpdateTodo: UpdateTodo;
-  existingTodo: TodoItem;
+  existingTodo: TodoItem | undefined;
 }
-
