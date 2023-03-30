@@ -1,5 +1,6 @@
 import ax from "axios";
-import { API_URL } from "../Constants";
+
+const API_URL  = process.env.REACT_APP_API_URL;
 
 export const GetTodos = () => {
   return ax.get(`${API_URL}`);

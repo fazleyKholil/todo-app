@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Card } from "../UI/Card";
+import Card from "../UI/Card";
 import CreateTodoForm from "../CreateTodoForm";
 import { Link } from "react-router-dom";
 import { MDBIcon, MDBBtn } from "mdb-react-ui-kit";
@@ -47,7 +47,7 @@ const CreateTodo: React.FC = () => {
   };
 
   return (
-    <Card Title={isEditable ? "Edit Todo's" : "Create Todo's"}>
+    <Card title={isEditable ? "Edit Todo's" : "Create Todo's"}>
       {showNotification && (
         <NotificationPanel message={resultMessage} isError={isError} />
       )}

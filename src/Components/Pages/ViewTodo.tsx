@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Card } from "../UI/Card";
+import Card  from "../UI/Card";
 import TodoList from "../TodoList";
 import { useNavigate } from "react-router-dom";
 import Loader from "../UI/Loader";
@@ -54,7 +54,7 @@ const Viewtodo: React.FC = () => {
   };
 
   return (
-    <Card Title="View Todo's">
+    <Card title="View Todo's">
       {loading && <Loader />}
       <hr className="my-4" />
       <FilterSortWidget />

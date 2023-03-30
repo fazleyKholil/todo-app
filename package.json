@@ -33,7 +33,7 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "coverage": "react-scripts test --silent --testLocationInResults --coverage --watchAll=false --ci --all --coverage --json --outputFile=\"report.json\"",
+    "coverage": "react-scripts test --silent --testLocationInResults --coverage --watchAll=false --ci --all --coverage ",
     "test:badges": "npm run coverage  && jest-coverage-badges --output ./coverage"
   },
   "eslintConfig": {
