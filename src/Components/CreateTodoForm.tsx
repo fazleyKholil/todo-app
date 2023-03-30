@@ -15,18 +15,24 @@ import {
   MDBCardBody,
 } from "mdb-react-ui-kit";
 
+interface TodoFormProps {
+  onAddingTodo: AddTodo;
+  onUpdateTodo: UpdateTodo;
+  existingTodo: TodoItem | undefined;
+}
+
 const CreateTodoForm: React.FC<TodoFormProps> = ({
   onAddingTodo,
   onUpdateTodo,
   existingTodo,
 }) => {
   let emptyTodo: TodoItem = {
-    Done: false,
-    Due: new Date(),
+    done: false,
+    due: new Date(),
     id: "",
-    Name: "",
+    name: "",
     priority: "",
-    Text: "",
+    text: "",
   };
 
   const [currentTodo, setCurrentTodo] = useState<TodoItem | undefined>(
@@ -59,9 +65,9 @@ const CreateTodoForm: React.FC<TodoFormProps> = ({
   } = useForm<FormSchemaType>({
     resolver: zodResolver(FormSchema),
     defaultValues: {
-      name: existingTodo?.Name,
-      text: existingTodo?.Text,
-      date: moment(existingTodo?.Due).format("yyyy-MM-DD"),
+      name: existingTodo?.name,
+      text: existingTodo?.text,
+      date: moment(existingTodo?.due).format("yyyy-MM-DD"),
       priority: existingTodo?.priority,
     },
   });
@@ -73,10 +79,10 @@ const CreateTodoForm: React.FC<TodoFormProps> = ({
         currentTodo !== undefined
           ? currentTodo.id
           : (Date.now() + Math.random()).toString(),
-      Name: data.name,
-      Text: data.text,
-      Done: false,
-      Due: new Date(data.date),
+      name: data.name,
+      text: data.text,
+      done: false,
+      due: new Date(data.date),
       priority: data.priority,
     };
 

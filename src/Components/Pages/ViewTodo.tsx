@@ -30,7 +30,7 @@ const Viewtodo: React.FC = () => {
   }, []);
 
   const toggleComplete: ToggleComplete = async (selectedTodo) => {
-    let updatedTodo = { ...selectedTodo, Done: !selectedTodo.Done };
+    let updatedTodo = { ...selectedTodo, Done: !selectedTodo.done };
 
     await UpdateTodo(updatedTodo);
 
