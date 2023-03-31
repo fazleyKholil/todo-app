@@ -11,19 +11,19 @@ const mockedAxios = axios as jest.Mocked<typeof axios>;
 const todos = [
   {
     id: 0,
-    Done: true,
-    Name: "Read Book",
-    Priority: "High",
-    Due: "2022-01-01",
-    Text: "Need to read the Accelerate book Building and Scaling high performing Organization",
+    done: true,
+    name: "Read Book",
+    priority: "High",
+    due: "2022-01-01",
+    text: "Need to read the Accelerate book Building and Scaling high performing Organization",
   },
   {
     id: 1,
-    Done: false,
-    Name: "Buy Drinks",
-    Priority: "medium",
-    Due: "2022-01-05",
-    Text: "Need to buy some drinks for the party.",
+    done: false,
+    name: "Buy Drinks",
+    priority: "medium",
+    due: "2022-01-05",
+    text: "Need to buy some drinks for the party.",
   },
 ];
 

@@ -1,9 +1,9 @@
 interface TodoItem {
-  Done: boolean;
-  Name: string;
+  done: boolean;
+  name: string;
   priority: string;
-  Due: Date;
-  Text: string;
+  due: Date;
+  text: string;
   id: string;
 }
 
@@ -14,8 +14,3 @@ type ToggleComplete = (selectedTodo: TodoItem) => void;
 type DeleteToDo = (todo: TodoItem) => void;
 type EditTodo = (todo: TodoItem) => void;
 
-interface TodoFormProps {
-  onAddingTodo: AddTodo;
-  onUpdateTodo: UpdateTodo;
-  existingTodo: TodoItem | undefined;
-}

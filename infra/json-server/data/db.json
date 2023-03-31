@@ -2,59 +2,59 @@
   "Todos": [
     {
       "id": 0,
-      "Done": true,
-      "Name": "Read Book",
-      "Priority": "High",
-      "Due": "2022-01-01",
-      "Text": "Need to read the Accelerate book Building and Scaling high performing Organization"
+      "done": true,
+      "name": "Read Book",
+      "priority": "High",
+      "due": "2022-01-01",
+      "text": "Need to read the Accelerate book Building and Scaling high performing Organization"
     },
     {
       "id": 1,
-      "Done": false,
-      "Name": "Buy Drinks",
-      "Priority": "medium",
-      "Due": "2022-01-05",
-      "Text": "Need to buy some drinks for the party."
+      "done": false,
+      "name": "Buy Drinks",
+      "priority": "medium",
+      "due": "2022-01-05",
+      "text": "Need to buy some drinks for the party."
     },
     {
       "id": 2,
-      "Done": true,
-      "Name": "Buy Shoes",
-      "Priority": "Low",
-      "Due": "2022-01-05",
-      "Text": "Need to buy some new shoes."
+      "done": true,
+      "name": "Buy Shoes",
+      "priority": "Low",
+      "due": "2022-01-05",
+      "text": "Need to buy some new shoes."
     },
     {
       "id": "3383be32-dd51-4725-9dd5-073358e5b6e1",
-      "Done": false,
-      "Name": "Learn about Polymer",
-      "Priority": "Low",
-      "Due": "2022-02-05",
-      "Text": "Need to Learn about Polymer."
+      "done": false,
+      "name": "Learn about Polymer",
+      "priority": "Low",
+      "due": "2022-02-05",
+      "text": "Need to Learn about Polymer."
     },
     {
       "id": "f3fb4993-f857-4502-af11-0dc1c9b57f95",
-      "Done": false,
-      "Name": "Online Course",
-      "Priority": "Low",
-      "Due": "2022-02-05",
-      "Text": "Watch Pluralsight course on Docker."
+      "done": false,
+      "name": "Online Course",
+      "priority": "Low",
+      "due": "2022-02-05",
+      "text": "Watch Pluralsight course on Docker."
     },
     {
       "id": "4bbe8607-9a1f-486b-901d-aa5263e6d350",
-      "Done": false,
-      "Name": "Presentation Prep",
-      "Priority": "Low",
-      "Due": "2022-02-05",
-      "Text": "Complete presentation prep for Aurelia presentation."
+      "done": false,
+      "name": "Presentation Prep",
+      "priority": "Low",
+      "due": "2022-02-05",
+      "text": "Complete presentation prep for Aurelia presentation."
     },
     {
       "id": "ab94c690-72bf-40c9-87dc-ca6411d9b907",
-      "Done": false,
-      "Name": "Code Refactoring",
-      "Priority": "Medium",
-      "Due": "2022-04-05",
-      "Text": "Transition code base to ES6."
+      "done": false,
+      "name": "Code Refactoring",
+      "priority": "Medium",
+      "due": "2022-04-05",
+      "text": "Transition code base to ES6."
     }
   ]
 }

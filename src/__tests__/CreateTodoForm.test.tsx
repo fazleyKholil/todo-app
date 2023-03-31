@@ -5,10 +5,10 @@ import CreateTodoForm from "../Components/CreateTodoForm";
 
 it("renders a create todo form", async () => {
   let todo: TodoItem = {
-    Name: "Add Unit Test",
-    Text: "Add Unit test using React Library to the Todo App",
-    Done: false,
-    Due: new Date(2022, 1, 1),
+    name: "Add Unit Test",
+    text: "Add Unit test using React Library to the Todo App",
+    done: false,
+    due: new Date(2022, 1, 1),
     id: "1",
     priority: "High",
   };
@@ -26,10 +26,10 @@ it("renders a create todo form", async () => {
 
 it("renders a edit todo form and check if it respond to update when submit button is clicked", async () => {
   let todo: TodoItem = {
-    Name: "Add Unit Test",
-    Text: "Add Unit test using React Library to the Todo App",
-    Done: false,
-    Due: new Date(2022, 1, 1),
+    name: "Add Unit Test",
+    text: "Add Unit test using React Library to the Todo App",
+    done: false,
+    due: new Date(2022, 1, 1),
     id: "1",
     priority: "High",
   };
@@ -61,10 +61,10 @@ it("renders a edit todo form and check if it respond to update when submit butto
 
 it("renders a create todo form and check if the validation form prevend the add to be called when submit button is clicked", async () => {
   let todo: TodoItem = {
-    Name: "Add Unit Test",
-    Text: "Add Unit test using React Library to the Todo App",
-    Done: false,
-    Due: new Date(2022, 1, 1),
+    name: "Add Unit Test",
+    text: "Add Unit test using React Library to the Todo App",
+    done: false,
+    due: new Date(2022, 1, 1),
     id: "1",
     priority: "High",
   };
@@ -94,16 +94,16 @@ it("renders a create todo form and check if the validation form prevend the add 
   // Fire event to trigger component update
   await act(async () => {
     await userEvent.clear(nameTextBox);
-    await userEvent.type(nameTextBox, todo.Name);
+    await userEvent.type(nameTextBox, todo.name);
 
     await userEvent.clear(textTextBox);
-    await userEvent.type(textTextBox, todo.Text);
+    await userEvent.type(textTextBox, todo.text);
 
     await userEvent.click(screen.getByTestId("create-todo-form-submit"));
   });
 
-  expect(nameTextBox).toHaveValue(todo.Name);
-  expect(textTextBox).toHaveValue(todo.Text);
+  expect(nameTextBox).toHaveValue(todo.name);
+  expect(textTextBox).toHaveValue(todo.text);
 
   // Assert if the function was called
   expect(mockOnAddingTodo).toHaveBeenCalled();
@@ -115,10 +115,10 @@ it("renders a create todo form and check if the validation form prevend the add 
 
 it("renders a create todo form and check if it renders the validation error", async () => {
   let todo: TodoItem = {
-    Name: "Add Unit Test",
-    Text: "Add Unit test using React Library to the Todo App",
-    Done: false,
-    Due: new Date(2022, 1, 1),
+    name: "Add Unit Test",
+    text: "Add Unit test using React Library to the Todo App",
+    done: false,
+    due: new Date(2022, 1, 1),
     id: "1",
     priority: "High",
   };
@@ -137,10 +137,9 @@ it("renders a create todo form and check if it renders the validation error", as
     );
   });
 
-
   // Fire event to trigger component update
   await act(async () => {
-    await userEvent.selectOptions(screen.getByTestId('todo priority'), 'None');
+    await userEvent.selectOptions(screen.getByTestId("todo priority"), "None");
     await userEvent.click(screen.getByTestId("create-todo-form-submit"));
   });
 

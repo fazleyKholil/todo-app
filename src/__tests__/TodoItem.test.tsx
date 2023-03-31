@@ -3,13 +3,12 @@ import userEvent from "@testing-library/user-event";
 import { act } from "react-dom/test-utils";
 import TodoItem from "../Components/TodoItem";
 
-
 it("renders a todo item", async () => {
   let todo: TodoItem = {
-    Name: "Add Unit Test",
-    Text: "Add Unit test using React Library to the Todo App",
-    Done: false,
-    Due: new Date(2024, 1, 1),
+    name: "Add Unit Test",
+    text: "Add Unit test using React Library to the Todo App",
+    done: false,
+    due: new Date(2024, 1, 1),
     id: "1",
     priority: "High",
   };
@@ -23,10 +22,10 @@ it("renders a todo item", async () => {
     />
   );
 
-  expect(screen.getByTestId("todo-name")).toHaveTextContent(todo.Name);
-  expect(screen.getByTestId("todo-text")).toHaveTextContent(todo.Text);
+  expect(screen.getByTestId("todo-name")).toHaveTextContent(todo.name);
+  expect(screen.getByTestId("todo-text")).toHaveTextContent(todo.text);
   expect(screen.getByTestId("todo-due")).toHaveTextContent(
-    todo.Due.toDateString()
+    todo.due.toDateString()
   );
   expect(screen.queryByTestId("todo-due-warning")).not.toBeInTheDocument();
   // expect(screen.getByTestId('todo-due-warning')).toEqual(null);
@@ -34,10 +33,10 @@ it("renders a todo item", async () => {
 
 it("renders a todo item", async () => {
   let todo: TodoItem = {
-    Name: "Add Unit Test",
-    Text: "Add Unit test using React Library to the Todo App",
-    Done: false,
-    Due: new Date(2022, 1, 1),
+    name: "Add Unit Test",
+    text: "Add Unit test using React Library to the Todo App",
+    done: false,
+    due: new Date(2022, 1, 1),
     id: "1",
     priority: "High",
   };
@@ -51,19 +50,19 @@ it("renders a todo item", async () => {
     />
   );
 
-  expect(screen.getByTestId("todo-name")).toHaveTextContent(todo.Name);
-  expect(screen.getByTestId("todo-text")).toHaveTextContent(todo.Text);
+  expect(screen.getByTestId("todo-name")).toHaveTextContent(todo.name);
+  expect(screen.getByTestId("todo-text")).toHaveTextContent(todo.text);
   expect(screen.getByTestId("todo-due")).toHaveTextContent(
-    todo.Due.toDateString()
+    todo.due.toDateString()
   );
 });
 
 it("renders a todo item and click toggle complete", async () => {
   let todo: TodoItem = {
-    Name: "Add Unit Test",
-    Text: "Add Unit test using React Library to the Todo App",
-    Done: true,
-    Due: new Date(2022, 1, 1),
+    name: "Add Unit Test",
+    text: "Add Unit test using React Library to the Todo App",
+    done: true,
+    due: new Date(2022, 1, 1),
     id: "1",
     priority: "High",
   };
@@ -85,14 +84,11 @@ it("renders a todo item and click toggle complete", async () => {
   });
 
   // Fire event to trigger component update
-  await act(
-    async () => {
-      await userEvent.click(screen.getByTestId("todo-item-check"))
-      await userEvent.click(screen.getByTestId("todo-item-edit"))
-      await userEvent.click(screen.getByTestId("todo-item-delete"))
-    }
-    
-  );
+  await act(async () => {
+    await userEvent.click(screen.getByTestId("todo-item-check"));
+    await userEvent.click(screen.getByTestId("todo-item-edit"));
+    await userEvent.click(screen.getByTestId("todo-item-delete"));
+  });
   // Assert if the function was called
   expect(mockToggleComplete).toHaveBeenCalled();
   expect(mockEditTodo).toHaveBeenCalled();
@@ -101,14 +97,13 @@ it("renders a todo item and click toggle complete", async () => {
 
 it("renders a todo item and click toggle complete", async () => {
   let todo: TodoItem = {
-    Name: "Add Unit Test",
-    Text: "Add Unit test using React Library to the Todo App",
-    Done: true,
-    Due: new Date(2022, 1, 1),
+    name: "Add Unit Test",
+    text: "Add Unit test using React Library to the Todo App",
+    done: true,
+    due: new Date(2022, 1, 1),
     id: "1",
     priority: "High",
   };
-
 
   // Render a component
   act(() => {
@@ -125,4 +120,3 @@ it("renders a todo item and click toggle complete", async () => {
   //assert if the checkbox was checked
   expect(screen.getByRole("checkbox")).toBeChecked();
 });
-
