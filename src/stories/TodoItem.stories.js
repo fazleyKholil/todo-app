@@ -8,7 +8,7 @@ export default {
 
 const todo = {
   id: 0,
-  done: false,
+  done: true,
   name: "Read Book",
   priority: "High",
   due: "2022-01-01",
@@ -17,7 +17,7 @@ const todo = {
 
 const todoChecked = {
   id: 0,
-  done: true,
+  done: false,
   name: "Read Book",
   priority: "High",
   due: "2022-01-01",
